@@ -26,7 +26,9 @@
           </div>
 
         </div>
-    <?php } ?>
+    <?php } 
+      echo paginate_links();
+    ?>
   </div>
 
 <?php get_footer(); ?>
