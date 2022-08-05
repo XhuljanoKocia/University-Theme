@@ -2,17 +2,13 @@
 
 <?php
     while(have_posts()){
-        the_post(); ?>
-
-        <div class="page-banner">
-            <div class="page-banner__bg-image" style="background-image: url(<?php $pageBannerImage = get_field('page_banner_background_image'); echo $pageBannerImage['sizes']['pageBanner']; ?>)"></div>
-                <div class="page-banner__content container container--narrow">
-                    <h1 class="page-banner__title"><?php the_title(); ?></h1>
-                <div class="page-banner__intro">
-                    <p><?php the_field('page_banner_subtitle'); ?></p>
-                </div>
-            </div>
-        </div>
+        the_post(); 
+        pageBanner(array(
+            'title' => 'Hello there this is the title',
+            'subtitle' => 'Hi, this is the subtitle',
+            'photo' => 'https://images.unsplash.com/photo-1659560555507-f103e2a7c656?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1975&q=80'
+          ));
+        ?>
 
         <div class="container container--narrow page-section">
 
