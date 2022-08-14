@@ -8,6 +8,8 @@ class Search {
         this.searchOverlay = $(".search-overlay");
         this.events();
         this.isOverlayOpen = false;
+        this.searchFireld = $("#search-term");
+        this.typingTimer;
     }
 
     // 2. Events
@@ -15,6 +17,7 @@ class Search {
         this.openButton.on("click", this.openOverlay.bind(this));
         this.closeButton.on("click", this.closeOverlay.bind(this));
         $(document).on("keydown", this.keyPressDispatcher.bind(this));
+        this.searchFireld.on("keydown", this.typingLogic.bind(this));
     }
 
     // 3. Methods (function, action)
@@ -38,6 +41,11 @@ class Search {
         if(e.keyCode == 27 && this.isOverlayOpen){
             this.closeOverlay();
         }
+    }
+
+    typingLogic(){
+        clearTimeout(this.typingTimer);
+        this.typingTimer = setTimeout(function(){console.log("This is a timeout test.");}, 2000);
     }
 }
 
